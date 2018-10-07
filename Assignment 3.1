@@ -1,0 +1,37 @@
+How to Import SAS XPORT files into R with the foreign package?
+Answer:
+read.xport(foreign)
+read.xport(file)
+
+2. How to Import SAS Files into R with the Haven package?
+Answer:
+#Install the package Haven
+install.packages("haven")
+#call Library function
+library(haven)
+read_sas(data_file, catalog_file = NULL, encoding = NULL,
+  catalog_encoding = encoding, cols_only = NULL)
+  
+data_file, catalog_file	:
+Path to data and catalog files. The files are processed with readr::datasource().
+encoding, catalog_encoding	:
+The character encoding used for the data_file and catalog_encoding respectively. A value of NULL uses the encoding specified in the file; use this argument to override it if it is incorrect.
+cols_only	:
+A character vector giving an experimental way to read in only specified columns.
+Example: path <- system.file("examples", "iris.sas7bdat", package = "haven")
+read_sas(path)
+
+3. How to read Weka Attribute-Relation File Format (ARFF) files in R?
+#Call library for foriegn
+library(foreign)
+read.arff(file)
+
+where file:	
+a character string with the name of the ARFF file to read from, or a connection which will be opened if necessary, and if so closed at the end of the function call.
+
+4. How to read a heavy csv/tsv file using readr package?
+Example, iris.txt
+irisdata<-read_tsv("iris.txt")
+
+Example for csv, iris.csv
+irisdata<-read_csv("iris.csv")
